@@ -7,8 +7,8 @@ This is an open-ended pair lab! It is up to you and your teammate to come up wit
 ## Technical Requirements
 
 Your application should be MEAN. This includes...
-* Using **MongoDB** as your database and **Mongoose** as your ODM.
-* Using **Express** to handle HTTP requests and serve API endpoints.
+* Using **MongoDB** as your database and **Mongoose** as your ODM
+* Using **Express** to handle HTTP requests and serve API endpoints
 * Adding **Angular** as your front-end. Express should only handle your root view as well as your API routes. Angular should take care of the rest via `ui.router`.
 * Using **Node** to run your Express server
 
@@ -40,7 +40,7 @@ We recommend following a pair programming approach, in which one person is the "
 
 ## Lab Submission
 
-Please submit an issue to this repo by the time indicated on the course schedule with the following:
+Please submit an issue to this repo by the time indicated on the course schedule with the following...
 * A link to your lab repo
 * A link to your deployed application (if you have one)
 * The names of your group members
