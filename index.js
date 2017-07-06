@@ -21,7 +21,7 @@ app.get('/events/:title', function(req,res){
     });
 });
 app.post('/events', function(req,res){
-    Event.create(req.body)then((event)=>{
+    Event.create(req.body).then((event)=>{
         res.json(event);
     });
 });
