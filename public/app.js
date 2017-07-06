@@ -1,8 +1,5 @@
 angular
-  .module("goFundYourself",[
-    "ui.router",
-    "ngResource"
-  ])
+  .module("goFundYourself",["ui.router","ngResource"])
   .config([
     "$stateProvider",
     function($stateProvider){
