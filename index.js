@@ -8,7 +8,7 @@ const Event = mongoose.EventModel;
 const Donation = mongoose.DonationModel;
 
 app.get('/*', function(req,res){
-    res.sendFile(`${__dirname}/public/app-root.html`);
+    res.sendFile(`/${__dirname}/public/app-root.html`);
 });
 app.get('/events', function(req,res){
     Event.find({}).then((events)=>{
