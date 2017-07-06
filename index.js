@@ -7,6 +7,9 @@ const app = express();
 const Event = mongoose.EventModel;
 const Donation = mongoose.DonationModel;
 
+
+
+
 app.set('port', process.env.PORT || 8082)
 app.use(parser.json({extended: true}));
 
@@ -36,9 +39,14 @@ app.put('/api/events/:title', function(req,res){
     });
 });
 app.get('/*', function(req,res){
+<<<<<<< HEAD
+    res.sendFile(__dirname + "/public/app-root.html");
+});
+=======
     res.sendFile(`${__dirname}/public/app-root.html`);
 });
 
+>>>>>>> d757b45663d512cad253ac6230c922a8a96a9d94
 
 app.listen(app.get('port'), ()=> {
     console.log(['Listening on port 8082'])
