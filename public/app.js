@@ -9,7 +9,7 @@ angular
       $stateProvider
       .state("welcome", {
         url: '/',
-        templateUrl: '/public/js/ng-views/welcome.html'
+        templateUrl: '/assets/js/ng-views/welcome.html'
       })
       .state("index", {
         url: '/events',
@@ -20,7 +20,7 @@ angular
       })
       .state("show",{
         url: '/events/:title',
-        templateUrl: '/public/js/ng-views/show.html',
+        templateUrl: '/assets/js/ng-views/show.html',
         controller: 'ShowController',
         controllerAs: 'vm'
       })

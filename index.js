@@ -7,9 +7,9 @@ const app = express();
 const Event = mongoose.EventModel;
 const Donation = mongoose.DonationModel;
 
-app.get('/*', function(req,res){
-    res.sendFile(`/${__dirname}/public/app-root.html`);
-});
+app.use("/assets", express.static("public"));
+
+
 app.get('/events', function(req,res){
     Event.find({}).then((events)=>{
         res.json(events);
@@ -35,7 +35,9 @@ app.put('/events/:title', function(req,res){
         res.json(event);
     });
 });
-
+app.get('/*', function(req,res){
+    res.sendFile(__dirname + "/public/app-root.html");
+});
 
 app.set('port', process.env.PORT || 8082)
 app.listen(app.get('port'), ()=> {
