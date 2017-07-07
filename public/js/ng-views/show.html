@@ -22,17 +22,33 @@
 
 
   </div>
-
-  <div class="edit-event">
-    <input type="text" ng-model="vm.event.title" value="vm.event.title" />
-    <input type="text" ng-model="vm.event.body" value="vm.event.body" />
+  <p>
+    Edit Event: <input type="checkbox" ng-model="myVar">
+  </p>
+  <div class="edit-event" ng-show="myVar">
+    <p>
+    <label>Title</label>
+    <input name="title" type="text" ng-model="vm.event.title" value="vm.event.title" />
+    </p>
+    <p>
+    <label>Description</label>
+    <input type="text-area" ng-model="vm.event.body" value="vm.event.body" style="width: 100%;"/>
+    </p>
+    <p>
+    <label>Current Amount</label>
     <input type="number" ng-model="vm.event.currentAmount" value="vm.event.currentAmount" />
+    </p>
+    <p>
+    <label>Goal</label>
     <input type="number" ng-model="vm.event.goal" value="vm.event.goal" />
-    <button data-ng-click="vm.update()">Edit Event</button>
-    <button data-ng-click="vm.destroy()">Delete Event</button>
+    </p>
+    <p>
+      <button data-ng-click="vm.update()">Edit Event</button>
+      <button data-ng-click="vm.destroy()">Delete Event</button>
+    </p>
   </div>
 
-  
+
   <h3>Donations: </h3>
   <div ng-repeat="donation in vm.event.donations">
     <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
