@@ -3,6 +3,14 @@ var Schema = require("../db/connection.js");
 var DonationModel = Schema.DonationModel
 var EventModel = Schema.EventModel
 
+DonationModel.remove({}).then(function(){
+    // process.exit();
+});
+
+EventModel.remove({}).then(function(){
+    // process.exit();
+});
+
 var donation1 = new DonationModel({name: "Tim", amount: 100, body: "Good Luck1"});
 var donation2 = new DonationModel({name: "Tarik", amount: 200, body: "Good Luck2!"});
 var donation3 = new DonationModel({name: "Bao", amount: 3, body: "Good Luck3!!!!!"});
