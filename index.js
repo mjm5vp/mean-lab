@@ -1,5 +1,6 @@
 var express = require("express");
 var parser = require("body-parser");
+var hbs     = require("express-handlebars");
 var mongoose = require("./db/connection");
 
 const app = express();
@@ -12,6 +13,19 @@ const Donation = mongoose.DonationModel;
 
 app.set('port', process.env.PORT || 8082)
 app.use(parser.json({extended: true}));
+
+app.set("view engine", "hbs");
+app.engine(".hbs", hbs({
+  extname:        ".hbs",
+  partialsDir:    "views/",
+  layoutsDir:     "views/",
+  defaultLayout:  "layout-main"
+}));
+app.use("/assets", express.static("public"));
+
+app.get("/", function(req, res){
+  res.render("events-index");
+});
 
 app.get('/api/events', function(req,res){
     Event.find({}).then((events)=>{
@@ -38,10 +52,7 @@ app.put('/api/events/:title', function(req,res){
         res.json(event);
     });
 });
-app.get('/*', function(req,res){
 
-    res.sendFile(`${__dirname}/public/app-root.html`);
-});
 app.listen(app.get('port'), ()=> {
     console.log(['Listening on port 8082'])
 })
