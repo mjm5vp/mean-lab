@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-<!-- <div ng-if="!vm.event.name">
-=======
 <div ng-if="!vm.event.title">
->>>>>>> 5c799c9216afbaf37da52cdad223b54f4dc16c83
   <h2>This Event Does Not Exist</h2>
-</div> -->
+</div>
 
 <div ng-if="vm.event.title">
   <h2>{{vm.event.title}}</h2>
@@ -23,7 +19,20 @@
     border: 1px solid #ebccd1;
     border-radius: 2px;">{{vm.event.currentAmount}}</p>
     </div>
+
+
   </div>
+
+  <div class="edit-event">
+    <input type="text" ng-model="vm.event.title" value="vm.event.title" />
+    <input type="text" ng-model="vm.event.body" value="vm.event.body" />
+    <input type="number" ng-model="vm.event.currentAmount" value="vm.event.currentAmount" />
+    <input type="number" ng-model="vm.event.goal" value="vm.event.goal" />
+    <button data-ng-click="vm.update()">Edit Event</button>
+    <button data-ng-click="vm.destroy()">Delete Event</button>
+  </div>
+
+  
   <h3>Donations: </h3>
   <div ng-repeat="donation in vm.event.donations">
     <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
