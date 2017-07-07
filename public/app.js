@@ -47,7 +47,7 @@ function IndexControllerFunction($state, EventFactory){
   console.log(this.events)
 
   this.newEvent = new EventFactory()
-  this.create = function () {
+  this.createEvent = function () {
   this.newEvent.$save().then(function(event){
     $state.go("show", { title: event.title })
   })

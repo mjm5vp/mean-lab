@@ -1,4 +1,4 @@
-<div ng-if="!vm.candidate.name">
+<div ng-if="!vm.event.name">
   <h2>This Event Does Not Exist</h2>
 </div>
 
@@ -11,7 +11,7 @@
   <div ng-repeat="donation in vm.event.donations">
     <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
   </div>
-</div>
+
 
 
 <form>
@@ -20,3 +20,6 @@
   <input placeholder="Body" data-ng-model="vm.body" />
   <button type="button" data-ng-click="vm.addDonation()">Create</button>
 </form>
+
+
+</div>

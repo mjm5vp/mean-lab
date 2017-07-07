@@ -19,12 +19,12 @@ var donation5 = new DonationModel({name: "Mark", amount: 800, body: "Good Luck5!
 var donation6 = new DonationModel({name: "Rob", amount: 800, body: "Good Luck6!!!!"});
 
 
-var event1 = new EventModel({title: "reminder1!!", body: "reminder1!!", goal: 400, currentAmount: 0, donations: [donation1]});
-var event2 = new EventModel({title: "reminder2!!", body: "reminder2!!", goal: 1000, currentAmount: 0, donations: [donation2]});
-var event3 = new EventModel({title: "reminder3!!", body: "reminder3!!", goal: 9000, currentAmount: 0, donations: [donation3]});
-var event4 = new EventModel({title: "reminder4!!", body: "reminder4!!", goal: 3000, currentAmount: 0, donations: [donation4]});
-var event5 = new EventModel({title: "reminder5!!", body: "reminder5!!", goal: 10000, currentAmount: 0, donations: [donation5]});
-var event6 = new EventModel({title: "reminder6!!", body: "reminder6!!", goal: 1000000, currentAmount: 0, donations: [donation6]});
+var event1 = new EventModel({title: "Save Tarik", body: "Tarik is so great.  Lets save him!", goal: 400, currentAmount: 0, donations: [donation1]});
+var event2 = new EventModel({title: "Save Tim", body: "Tim is so great.  Lets save him!", goal: 1000, currentAmount: 0, donations: [donation2]});
+var event3 = new EventModel({title: "Destroy Bao", body: "Bao needs to be eliminated.  Donate to make our dreams come true", goal: 9000, currentAmount: 0, donations: [donation3]});
+var event4 = new EventModel({title: "Shave James", body: "Enough is enough", goal: 3000, currentAmount: 0, donations: [donation4]});
+var event5 = new EventModel({title: "Feed Mark", body: "He likes tacos", goal: 10000, currentAmount: 0, donations: [donation5]});
+var event6 = new EventModel({title: "Feed Rob", body: "He likes pork belly tacos", goal: 1000000, currentAmount: 0, donations: [donation6]});
 
 var events = [event1, event2, event3, event4, event5, event6]
 
