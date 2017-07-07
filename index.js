@@ -8,9 +8,6 @@ const app = express();
 const Event = mongoose.EventModel;
 const Donation = mongoose.DonationModel;
 
-
-
-
 app.set('port', process.env.PORT || 8082)
 app.use(parser.json({extended: true}));
 
@@ -52,7 +49,6 @@ app.put('/api/events/:title', function(req,res){
         res.json(event);
     });
 });
-
 app.listen(app.get('port'), ()=> {
     console.log(['Listening on port 8082'])
 })
