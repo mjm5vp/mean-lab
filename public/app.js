@@ -5,6 +5,7 @@ angular
     Router
   ])
   .controller("IndexController",[
+    "$state",
     "EventFactory",
     IndexControllerFunction
   ])
@@ -12,9 +13,7 @@ angular
     "EventFactory",
     "$state",
     "$stateParams",
-    function(EventFactory, $state, $stateParams){
-
-    }
+    ShowControllerFunction
   ])
   .factory("EventFactory",[
     "$resource",
@@ -42,10 +41,29 @@ function Router($stateProvider){
   })
 }
 
-function IndexControllerFunction(EventFactory){
+function IndexControllerFunction($state, EventFactory){
   console.log("controller working")
   this.events = EventFactory.query()
   console.log(this.events)
+
+  this.newEvent = new EventFactory()
+  this.create = function () {
+  this.newEvent.$save().then(function(event){
+    $state.go("show", { title: event.title })
+  })
+}
+}
+
+function ShowControllerFunction(EventFactory, $state, $stateParams){
+  this.event = EventFactory.get({title: $stateParams.title})
+  this.update = function () {
+    this.event.$update({name: $stateParams.title})
+  }
+  this.destroy = function () {
+    this.event.$delete({name: $stateParams.title}).then(function(){
+      $state.go("index")
+    })
+  }
 }
 
 

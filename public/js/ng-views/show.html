@@ -1,1 +1,11 @@
-<h1>Show</h1>
+<div ng-if="!vm.candidate.name">
+  <h2>This Event Does Not Exist</h2>
+</div>
+
+<div ng-if="vm.event.title">
+  <h2>{{vm.event.title}}</h2>
+  <p>{{vm.event.body}}</p>
+  <p>{{vm.event.goal}}</p>
+  <p>{{vm.event.currentAmount}}</p>
+  <p>{{vm.event.donations}}</p>
+</div>
