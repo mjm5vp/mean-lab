@@ -75,3 +75,19 @@ section {
 .width50:nth-of-type(2) p{
     padding-left: 10px;
 }
+
+.success{
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    border-radius: 2px;
+}
+.warning{
+    background: #fcf8e3;
+    border: 1px solid #ec971f;
+    border-radius: 2px;
+}
+.danger{
+    background: #f2dede;
+    border: 1px solid #ebccd1;
+    border-radius: 2px;
+}

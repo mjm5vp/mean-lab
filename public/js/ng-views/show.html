@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <!-- <div ng-if="!vm.event.name">
-=======
-<div ng-if="!vm.event.title">
->>>>>>> 5c799c9216afbaf37da52cdad223b54f4dc16c83
   <h2>This Event Does Not Exist</h2>
 </div> -->
 
@@ -16,20 +12,15 @@
     </div>
     <div class="width50">
       <h3>Total Raised: </h3>
-      <p data-ng-if="vm.event.currentAmount == vm.event.goal" style="background: #dff0d8;
-    border: 1px solid #3c763d;
-    border-radius: 2px;">{{vm.event.currentAmount}}</p>
-    <p data-ng-if="vm.event.currentAmount !== vm.event.goal" style="background: #f2dede;
-    border: 1px solid #ebccd1;
-    border-radius: 2px;">{{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount < vm.event.goal/2" class="danger">{{vm.event.currentAmount}}</p>
+    <p data-ng-if="vm.event.currentAmount >= vm.event.goal/2 && vm.event.currentAmount < vm.event.goal" class="warning">{{vm.event.currentAmount}}</p>
+    <p data-ng-if="vm.event.currentAmount >= vm.event.goal" class="success">{{vm.event.currentAmount}}</p>
     </div>
   </div>
   <h3>Donations: </h3>
   <div ng-repeat="donation in vm.event.donations">
     <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
   </div>
-
-
 
 <form>
   <input placeholder="Name" data-ng-model="vm.name" />
