@@ -3,6 +3,7 @@ angular
   .config([
     "$stateProvider",
     function($stateProvider){
+      console.log("router working")
       $stateProvider
       .state("welcome", {
         url: '/',
@@ -10,10 +11,9 @@ angular
       })
       .state("index", {
         url: '/events',
-        templateUrl: './js/ng-views/index.html',
+        templateUrl: '/assets/js/ng-views/index.html',
         controller: 'IndexController',
         controllerAs: 'vm'
-        }
       })
       .state("show",{
         url: '/events/:title',
@@ -25,10 +25,7 @@ angular
   ])
   .controller("IndexController",[
     "EventFactory",
-    "$state",
-    function(EventFactory, $state){
-
-    }
+    IndexControllerFunction
   ])
   .controller("ShowController", [
     "EventFactory",
@@ -46,3 +43,9 @@ angular
       })
     }
   ])
+
+function IndexControllerFunction(EventFactory){
+  console.log("controller working")
+  this.events = EventFactory.query()
+  console.log(this.events)
+}
