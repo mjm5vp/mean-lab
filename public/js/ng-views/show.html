@@ -9,3 +9,11 @@
   <p>{{vm.event.currentAmount}}</p>
   <p>{{vm.event.donations}}</p>
 </div>
+
+
+<form>
+  <input placeholder="Name" data-ng-model="vm.name" />
+  <input placeholder="Amount" data-ng-model="vm.amount" />
+  <input placeholder="Body" data-ng-model="vm.body" />
+  <button type="button" data-ng-click="vm.addDonation()">Create</button>
+</form>

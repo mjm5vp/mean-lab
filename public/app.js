@@ -55,15 +55,23 @@ function IndexControllerFunction($state, EventFactory){
 }
 
 function ShowControllerFunction(EventFactory, $state, $stateParams){
+  var self = this
   this.event = EventFactory.get({title: $stateParams.title})
   this.update = function () {
-    this.event.$update({name: $stateParams.title})
+    this.event.$update({title: $stateParams.title})
   }
   this.destroy = function () {
-    this.event.$delete({name: $stateParams.title}).then(function(){
+    this.event.$delete({title: $stateParams.title}).then(function(){
       $state.go("index")
     })
   }
+
+  this.addDonation = function(){
+    self.newDonation = {name: self.name, amount: self.amount, body: self.body}
+    self.event.donations.push(self.newDonation)
+    self.event.$update({title: $stateParams.title})
+  }
+
 }
 
 
@@ -72,4 +80,11 @@ function EventFactoryFunction($resource){
       return $resource("/api/events/:title", {}, {
         update: { method: "PUT" }
       })
-    }
+}
+
+function DonationFactoryFunction($resource){
+  console.log("donation factory working")
+      return $resource("/api/events/:title", {}, {
+        update: { method: "PUT" }
+      })
+}
