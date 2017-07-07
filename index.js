@@ -21,7 +21,7 @@ app.engine(".hbs", hbs({
 app.use("/assets", express.static("public"));
 
 app.get("/", function(req, res){
-  res.render("events-index");
+  res.render("welcome");
 });
 
 app.get('/api/events', function(req,res){
