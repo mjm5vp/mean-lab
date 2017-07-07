@@ -8,3 +8,12 @@
     <a ui-sref="show({title: event.title})">{{event.title}}</a>
   </h3>
 </div>
+
+
+<form ng-submit="vm.createEvent()">
+  <input type="text" ng-model="vm.newEvent.title" placeholder="Title" />
+  <input type="text" ng-model="vm.newEvent.body" placeholder="Body" />
+  <input type="number" ng-model="vm.newEvent.currentAmount" placeholder="currentAmount" value="0"/>
+  <input type="number" ng-model="vm.newEvent.goal" placeholder="Goal" />
+  <button type="submit">Add An Event</button>
+</form>

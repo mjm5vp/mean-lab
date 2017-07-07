@@ -1,1 +1,25 @@
-<h1>Show</h1>
+<div ng-if="!vm.event.name">
+  <h2>This Event Does Not Exist</h2>
+</div>
+
+<div ng-if="vm.event.title">
+  <h2>{{vm.event.title}}</h2>
+  <p>{{vm.event.body}}</p>
+  <p>{{vm.event.goal}}</p>
+  <p>{{vm.event.currentAmount}}</p>
+  <h3>Donations: </h3>
+  <div ng-repeat="donation in vm.event.donations">
+    <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
+  </div>
+
+
+
+<form>
+  <input placeholder="Name" data-ng-model="vm.name" />
+  <input placeholder="Amount" data-ng-model="vm.amount" />
+  <input placeholder="Body" data-ng-model="vm.body" />
+  <button type="button" data-ng-click="vm.addDonation()">Create</button>
+</form>
+
+
+</div>
