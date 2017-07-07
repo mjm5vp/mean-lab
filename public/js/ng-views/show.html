@@ -7,7 +7,10 @@
   <p>{{vm.event.body}}</p>
   <p>{{vm.event.goal}}</p>
   <p>{{vm.event.currentAmount}}</p>
-  <p>{{vm.event.donations}}</p>
+  <h3>Donations: </h3>
+  <div ng-repeat="donation in vm.event.donations">
+    <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
+  </div>
 </div>
 
 
