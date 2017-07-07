@@ -65,11 +65,23 @@ function ShowControllerFunction(EventFactory, $state, $stateParams){
       $state.go("index")
     })
   }
+  // this.totalDonations = 0
+  // console.log(this.event.donations.length)
+  // // this.event.donations.forEach(function(donation, i){
+  // //   self.totalDonations += donation.amount
+  // // })
+  //
+  // this.event.currentAmount = this.totalDonations
+  // this.event.$update({title: $stateParams.title})
 
   this.addDonation = function(){
     self.newDonation = {name: self.name, amount: self.amount, body: self.body}
     self.event.donations.push(self.newDonation)
+    self.newCurrentAmount = self.event.currentAmount + parseInt(self.amount)
+    self.event.currentAmount = self.newCurrentAmount
+    console.log(self.newCurrentAmount)
     self.event.$update({title: $stateParams.title})
+    console.log(self.event.currentAmount)
   }
 
 }
