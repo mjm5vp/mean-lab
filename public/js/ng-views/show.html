@@ -1,12 +1,25 @@
-<div ng-if="!vm.event.name">
+<!-- <div ng-if="!vm.event.name">
   <h2>This Event Does Not Exist</h2>
-</div>
+</div> -->
 
 <div ng-if="vm.event.title">
   <h2>{{vm.event.title}}</h2>
   <p>{{vm.event.body}}</p>
-  <p>{{vm.event.goal}}</p>
-  <p>{{vm.event.currentAmount}}</p>
+  <div class="amounts">
+    <div class="width50">
+      <h3>Goal: </h3>
+      <p>{{vm.event.goal}}</p>
+    </div>
+    <div class="width50">
+      <h3>Total Raised: </h3>
+      <p data-ng-if="vm.event.currentAmount == vm.event.goal" style="background: #dff0d8;
+    border: 1px solid #3c763d;
+    border-radius: 2px;">{{vm.event.currentAmount}}</p>
+    <p data-ng-if="vm.event.currentAmount !== vm.event.goal" style="background: #f2dede;
+    border: 1px solid #ebccd1;
+    border-radius: 2px;">{{vm.event.currentAmount}}</p>
+    </div>
+  </div>
   <h3>Donations: </h3>
   <div ng-repeat="donation in vm.event.donations">
     <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>

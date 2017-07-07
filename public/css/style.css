@@ -1,23 +1,77 @@
 header {
     display: inline-flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px #efefef solid;
+    box-shadow: 1px 1px 1px black;
+    margin: 0 -15px;
+}
+header a{
+    position: relative;
+    left: 40%;
+}
+
+header a img{
+    width: 250px;
 }
 
 header ul {
     display: inline-flex;
     list-style: none;
+    position: relative;
+    right: 50px;
 }
 
 header ul li a{
-    margin: 10px;
+    margin: 20px;
     color: #419a1c;
+    opacity: .8;
     text-decoration: none;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     border-bottom: 3px solid #419a1c;
+    position: relative;
+    top: 50%;
 }
 
 header ul li a:hover{
     color: black;
     text-decoration: none;
     border-bottom: 3px solid black;
+}
+header ul li a:hover{
+    text-decoration: none;
+}
+.jumbotron {
+    width: 500px;
+}
+.jumbotron form label{
+    display: block;
+    margin: 10px 0
+}
+.jumbotron form label input{
+    display: block;
+}
+.jumbotron form label .form-control {
+    width: 367px;
+    border-radius: 4px !important;
+}
+.jumbotron form label .long-text{
+    width: 400px;
+}
+section {
+    width: 100%;
+    margin: 0 auto;
+}
+.amounts {
+    width: 100%;
+    display: inline-flex;
+}
+.width50{
+    width: 50%;
+}
+.width50:nth-of-type(2) p{
+    padding-left: 10px;
 }
