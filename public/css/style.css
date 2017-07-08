@@ -91,3 +91,6 @@ section {
     border: 1px solid #ebccd1;
     border-radius: 2px;
 }
+.campaigns {
+    cursor: pointer;
+}

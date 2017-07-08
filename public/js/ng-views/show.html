@@ -12,9 +12,9 @@
     </div>
     <div class="width50">
       <h3>Total Raised: </h3>
-      <p data-ng-if="vm.event.currentAmount < vm.event.goal/2" class="danger">{{vm.event.currentAmount}}</p>
-    <p data-ng-if="vm.event.currentAmount >= vm.event.goal/2 && vm.event.currentAmount < vm.event.goal" class="warning">{{vm.event.currentAmount}}</p>
-    <p data-ng-if="vm.event.currentAmount >= vm.event.goal" class="success">{{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount < vm.event.goal/2" class="danger">${{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount >= vm.event.goal/2 && vm.event.currentAmount < vm.event.goal" class="warning">${{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount >= vm.event.goal" class="success">${{vm.event.currentAmount}}</p>
     </div>
   </div>
   <h3>Donations: </h3>

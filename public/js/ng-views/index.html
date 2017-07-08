@@ -2,9 +2,15 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4" data-ng-repeat="event in vm.events">
-            <h3>
-                <a ui-sref="show({title: event.title})">{{event.title}}</a>
-            </h3>
+            <div data-ui-sref="show({title: event.title})" data-ng-if="event.currentAmount < event.goal/2" class="danger campaigns">
+                <h3>{{event.title}}</h3>
+            </div>
+            <div data-ui-sref="show({title: event.title})" data-ng-if="event.currentAmount >= event.goal/2 && event.currentAmount < event.goal" class="warning campaigns">
+                <h3>{{event.title}}</h3>
+            </div>
+            <div data-ui-sref="show({title: event.title})" data-ng-if="event.currentAmount >= event.goal" class="success campaigns">
+                <h3>{{event.title}}</h3>
+            </div>
         </div>
     </div>
 </div>
