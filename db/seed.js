@@ -39,4 +39,4 @@ events.forEach(function(event, i){
   })
 });
 
-process.exit();
+// process.exit();

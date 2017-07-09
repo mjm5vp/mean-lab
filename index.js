@@ -54,14 +54,18 @@ app.put('/api/events/:title', function(req,res){
 //Donation Model testing
 app.get('/api/events/:title/donations', function(req,res){
     Event.findOne({title: req.params.title}).then((event)=>{
+        console.log("id: " + event.donations[0].id)
         res.json(event.donations);
     });
 });
-app.get('/api/events/:title/donations/:name', function(req,res){
+app.get('/api/events/:title/donations/:id', function(req,res){
     Event.findOne({title: req.params.title}).then((event)=>{
-        event.donations.findOne({name: req.params.name}).then((donation)=>{
-          res.json(donation)
-        })
+      console.log("hello")
+      var don = event.donations.filter(function(e) {
+        return e.id == req.params.id;
+      });
+      console.log(don)
+      res.json(don)
     });
 });
 app.post('/api/events', function(req,res){

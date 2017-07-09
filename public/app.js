@@ -16,6 +16,7 @@ angular
   ])
   .controller("ShowController", [
     "EventFactory",
+    "DonationFactory",
     "$state",
     "$stateParams",
     ShowControllerFunction
@@ -23,6 +24,10 @@ angular
   .factory("EventFactory",[
     "$resource",
     EventFactoryFunction
+  ])
+  .factory("DonationFactory",[
+    "$resource",
+    DonationFactoryFunction
   ])
 
 function Router($stateProvider){
@@ -59,7 +64,7 @@ function IndexControllerFunction($state, EventFactory){
 }
 }
 
-function ShowControllerFunction(EventFactory, $state, $stateParams){
+function ShowControllerFunction(EventFactory, DonationFactory, $state, $stateParams){
   var self = this
   this.event = EventFactory.get({title: $stateParams.title})
   this.update = function () {
@@ -81,9 +86,9 @@ function ShowControllerFunction(EventFactory, $state, $stateParams){
 
   this.addDonation = function(){
 
-    // self.donationObj = new DonationModel({name: self.name, amount: self.amount, body: self.body})
-    // console.log("dontationObj: " + self.donationObj)
-    // self.event.dontations.push(self.donationObj)
+    self.donationObj = new DonationFactory({name: self.name, amount: self.amount, body: self.body})
+    console.log("dontationObj: " + self.donationObj)
+    self.event.donations.push(self.donationObj)
 
     // self.newDonation = {name: self.name, amount: self.amount, body: self.body}
     // self.event.donations.push(self.newDonation)
@@ -106,7 +111,7 @@ function EventFactoryFunction($resource){
 
 function DonationFactoryFunction($resource){
   console.log("donation factory working")
-      return $resource("/api/events/:title/donations/:name", {}, {
+      return $resource("/api/events/:title/donations/:id", {}, {
         update: { method: "PUT" }
       })
 }
