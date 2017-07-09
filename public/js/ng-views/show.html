@@ -12,50 +12,20 @@
     </div>
     <div class="width50">
       <h3>Total Raised: </h3>
-      <p data-ng-if="vm.event.currentAmount == vm.event.goal" style="background: #dff0d8;
-    border: 1px solid #3c763d;
-    border-radius: 2px;">{{vm.event.currentAmount}}</p>
-    <p data-ng-if="vm.event.currentAmount !== vm.event.goal" style="background: #f2dede;
-    border: 1px solid #ebccd1;
-    border-radius: 2px;">{{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount < vm.event.goal/2" class="danger">${{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount >= vm.event.goal/2 && vm.event.currentAmount < vm.event.goal" class="warning">${{vm.event.currentAmount}}</p>
+      <p data-ng-if="vm.event.currentAmount >= vm.event.goal" class="success">${{vm.event.currentAmount}}</p>
     </div>
-
-
   </div>
-  <p>
-    Edit Event: <input type="checkbox" ng-model="myVar">
-  </p>
-  <div class="edit-event" ng-show="myVar">
-    <p>
-    <label>Title</label>
-    <input name="title" type="text" ng-model="vm.event.title" value="vm.event.title" />
-    </p>
-    <p>
-    <label>Description</label>
-    <input type="text-area" ng-model="vm.event.body" value="vm.event.body" style="width: 100%;"/>
-    </p>
-    <p>
-    <label>Current Amount</label>
-    <input type="number" ng-model="vm.event.currentAmount" value="vm.event.currentAmount" />
-    </p>
-    <p>
-    <label>Goal</label>
-    <input type="number" ng-model="vm.event.goal" value="vm.event.goal" />
-    </p>
-    <p>
-      <button data-ng-click="vm.update()">Edit Event</button>
-      <button data-ng-click="vm.destroy()">Delete Event</button>
-    </p>
-  </div>
-
-
   <h3>Donations: </h3>
   <div ng-repeat="donation in vm.event.donations">
     <p>{{donation.name}}: {{donation.amount}} - {{donation.body}}</p>
   </div>
 
 
+
 <h3>Add Donation:</h3>
+
 <form>
   <input placeholder="Name" data-ng-model="vm.name" />
   <input placeholder="Amount" data-ng-model="vm.amount" />

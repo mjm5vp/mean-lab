@@ -1,3 +1,8 @@
+// var Schema = require("../db/connection.js");
+//
+// var DonationModel = Schema.DonationModel
+// var EventModel = Schema.EventModel
+
 angular
   .module("goFundYourself",["ui.router","ngResource"])
   .config([
@@ -75,8 +80,13 @@ function ShowControllerFunction(EventFactory, $state, $stateParams){
   // this.event.$update({title: $stateParams.title})
 
   this.addDonation = function(){
-    self.newDonation = {name: self.name, amount: self.amount, body: self.body}
-    self.event.donations.push(self.newDonation)
+
+    // self.donationObj = new DonationModel({name: self.name, amount: self.amount, body: self.body})
+    // console.log("dontationObj: " + self.donationObj)
+    // self.event.dontations.push(self.donationObj)
+
+    // self.newDonation = {name: self.name, amount: self.amount, body: self.body}
+    // self.event.donations.push(self.newDonation)
     self.newCurrentAmount = self.event.currentAmount + parseInt(self.amount)
     self.event.currentAmount = self.newCurrentAmount
     console.log(self.newCurrentAmount)
@@ -88,7 +98,7 @@ function ShowControllerFunction(EventFactory, $state, $stateParams){
 
 
 function EventFactoryFunction($resource){
-  console.log("factory working")
+  console.log("Event factory working")
       return $resource("/api/events/:title", {}, {
         update: { method: "PUT" }
       })
@@ -96,7 +106,7 @@ function EventFactoryFunction($resource){
 
 function DonationFactoryFunction($resource){
   console.log("donation factory working")
-      return $resource("/api/events/:title", {}, {
+      return $resource("/api/events/:title/donations/:name", {}, {
         update: { method: "PUT" }
       })
 }

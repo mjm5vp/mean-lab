@@ -49,6 +49,28 @@ app.put('/api/events/:title', function(req,res){
         res.json(event);
     });
 });
+
+
+//Donation Model testing
+app.get('/api/events/:title/donations', function(req,res){
+    Event.findOne({title: req.params.title}).then((event)=>{
+        res.json(event.donations);
+    });
+});
+app.get('/api/events/:title/donations/:name', function(req,res){
+    Event.findOne({title: req.params.title}).then((event)=>{
+        event.donations.findOne({name: req.params.name}).then((donation)=>{
+          res.json(donation)
+        })
+    });
+});
+app.post('/api/events', function(req,res){
+    Event.create(req.body).then((event)=>{
+        res.json(event);
+    });
+});
+
+
 app.listen(app.get('port'), ()=> {
     console.log(['Listening on port 8082'])
 })
